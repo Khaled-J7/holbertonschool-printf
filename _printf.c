@@ -12,6 +12,7 @@ int _printf(const char *format, ...)
 {
     va_list args;
     int len = 0;
+
     int str_len = 0;
 
     if (format == NULL)
@@ -59,7 +60,7 @@ int _printf(const char *format, ...)
             }
             else
             {
-                /* Invalid conversion specifier, print '%' and the character */
+                /* Invalid conversion specifier, print it as is */
                 write(1, "%", 1);
                 write(1, format, 1);
                 len += 2;
