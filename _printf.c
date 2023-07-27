@@ -10,12 +10,16 @@
  */
 int _printf(const char *format, ...)
 {
-    int len = 0;
     va_list args;
+    int len = 0;
+    int str_len = 0;
+
+    if (format == NULL)
+        return -1;
 
     va_start(args, format);
 
-    while (format && *format)
+    while (*format)
     {
         if (*format != '%')
         {
@@ -25,7 +29,7 @@ int _printf(const char *format, ...)
         else
         {
             format++; /* Move past the '%' */
-            /* Handle the conversion specifier */
+
             if (*format == 'c')
             {
                 /* Print a character */
@@ -37,15 +41,15 @@ int _printf(const char *format, ...)
             {
                 /* Print a string */
                 char *str = va_arg(args, char *);
-                if (str)
-                {
-                    int str_len = 0;
-                    while (str[str_len])
-                        str_len++;
+                if (str == NULL)
+                    str = "(null)";
 
-                    write(1, str, str_len);
-                    len += str_len;
-                }
+                
+                while (str[str_len])
+                    str_len++;
+
+                write(1, str, str_len);
+                len += str_len;
             }
             else if (*format == '%')
             {
