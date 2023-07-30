@@ -1,0 +1,42 @@
+.TH _printf "3"
+.SH NAME
+_printf - Format and print data to the standard output stream.
+.SH SYNOPSIS
+.B #include <main.h>
+.br
+.I int _printf(const char *format, ...);
+.SH DESCRIPTION
+The _printf function is a simplified implementation of the standard C library's printf function. It prints a formatted message to the standard output stream using a "format string" that includes placeholders for the data to be printed. The placeholders are replaced by the corresponding arguments passed to the function. The format string supports various format specifiers for different data types, such as characters, strings, and integers.
+
+.SH RETURN VALUE
+The _printf function returns the number of characters written to the standard output stream. If an error occurs, it returns a negative value.
+
+.SH FORMAT SPECIFIERS
+The format string contains format specifiers that begin with the '%' symbol, followed by a single character that indicates the type of data to be printed. The following format specifiers are supported:
+
+.IP \fB%c\fR
+Prints a single character. The argument passed for specifier "%c" is of type int, and it is converted to an unsigned char before printing.
+
+.IP \fB%s\fR
+Prints a string pointed to by a const char *. The argument passed for specifier "%s" should be the address of the string to be printed.
+
+.IP \fB%%\fR
+Prints a percent sign (%). To use this literal character, you must write "%%" in the format string.
+
+.IP \fB%d, %i\fR
+Prints a signed decimal representation of an integer. The argument passed for specifiers "%d" and "%i" should be of type int.
+
+.SH BUGS
+Currently, there are no known bugs in the _printf function.
+
+.SH NOTES
+The current implementation does not support the following features present in the standard printf function:
+
+.IP \fB+\fR, \fB#\fR, \fB-\fR, \fB(space)\fR, \fB0 flag character\fR, \fBreverse\fR, \fBRot13\fR, \fBand binary\fR.
+
+.SH AUTHORS
+This project was created by Nicolas Ribeiro and Carlos Araque for Holberton School.
+
+.SH COPYRIGHT
+This manual page is part of the _printf project and is distributed under the terms of the MIT License.
+
