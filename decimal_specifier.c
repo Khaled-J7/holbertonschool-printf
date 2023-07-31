@@ -6,34 +6,34 @@
 */
 int set_decimal(va_list valist)
 {
-	int i, div, len;
-	unsigned int num;
+    int i, div, len;
+    unsigned int num;
 
-	i = va_arg(valist, int);
-	div = 1;
-	len = 0;
-	if (i < 0)
-	{
-		len += _putchar('-');
-		num = i * -1;
-	}
-	else
-	{
-		num = i;
-	}
+    i = va_arg(valist, int);
+    div = 1;
+    len = 0;
 
-	for (; num / div > 9;)
-	{
-		div *= 10;
-	}
+    if (i < 0)
+    {
+        len += _putchar('-');
+        num = i * -1;
+    }
+    else
+    {
+        num = i;
+    }
 
-	for (; div != 0;)
-	{
-		len += _putchar('0' + (num / div));
-		num %= div;
-		div /= 10;
-	}
+    while (num >= 10)
+    {
+        div *= 10;
+    }
 
-	return (len);
+    while (div != 0)
+    {
+        len += _putchar('0' + (num / div));
+        num %= div;
+        div /= 10;
+    }
+
+    return (len);
 }
-
