@@ -35,7 +35,7 @@ The current implementation does not support the following features present in th
 .IP \fB+\fR, \fB#\fR, \fB-\fR, \fB(space)\fR, \fB0 flag character\fR, \fBreverse\fR, \fBRot13\fR, \fBand binary\fR.
 
 .SH AUTHORS
-This project was created by Nicolas Ribeiro and Carlos Araque for Holberton School.
+This project was created by Khairi Taboubi and Khaled Jallouli for Holberton School.
 
 .SH COPYRIGHT
 This manual page is part of the _printf project and is distributed under the terms of the MIT License.
